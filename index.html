@@ -2578,7 +2578,8 @@ function updateEraIndicator(){
   let currentEra='';
   dividers.forEach(d=>{
     const rect=d.getBoundingClientRect();
-    if(rect.top<120) currentEra=d.querySelector('.era-badge')?d.querySelector('.era-badge').textContent:'';
+    // only show indicator when the divider has fully scrolled above the viewport
+    if(rect.bottom<0) currentEra=d.querySelector('.era-badge')?d.querySelector('.era-badge').textContent:'';
   });
   if(currentEra){ind.textContent=currentEra;ind.classList.add('visible');}
   else{ind.classList.remove('visible');}
