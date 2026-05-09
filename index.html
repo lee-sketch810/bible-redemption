@@ -2631,19 +2631,21 @@ function filterTimeline(q){
     const nameEn=card.querySelector('.book-name-en')?card.querySelector('.book-name-en').textContent.toLowerCase():'';
     card.style.display=(name.includes(kw)||nameEn.includes(kw))?'':'none';
   });
-  // hide era-dividers and intros if all cards in them hidden
+  // hide era-dividers and era-intros if all cards in them hidden
   document.querySelectorAll('.era-divider').forEach(div=>{
     let next=div.nextElementSibling;
-    // skip era-intro
-    if(next&&next.classList.contains('era-intro')) next=next.nextElementSibling;
-    // check if any book-card after this until next era-divider is visible
+    // collect era-intro sibling (if any)
+    const intro=(next&&next.classList.contains('era-intro'))?next:null;
+    let el=intro?intro.nextElementSibling:next;
+    // check if any book-card in this era is visible
     let hasVisible=false;
-    let el=next;
     while(el&&!el.classList.contains('era-divider')){
       if(el.classList.contains('book-card')&&el.style.display!=='none') hasVisible=true;
       el=el.nextElementSibling;
     }
-    div.style.display=(!kw||hasVisible)?'':'none';
+    const show=!kw||hasVisible;
+    div.style.display=show?'':'none';
+    if(intro) intro.style.display=show?'':'none';
   });
 }
 
