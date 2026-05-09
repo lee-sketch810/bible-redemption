@@ -332,7 +332,7 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
 .book-card:hover { border-color:var(--gold-border); transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,0.1); }
 .book-card:active { transform:translateY(0); box-shadow:none; }
 .book-card:not(.read):not(.expanded)::before { content:'클릭 ›'; position:absolute; bottom:8px; right:10px; font-size:11px; color:var(--gold); opacity:0.75; line-height:1; font-weight:600; letter-spacing:0.5px; }
-.book-card.expanded::before { content:'닫기 ×'; position:absolute; bottom:8px; right:10px; font-size:11px; color:var(--text-muted); opacity:0.85; line-height:1; font-weight:600; letter-spacing:0.5px; }
+.book-card.expanded::before { display:none; }
 .book-card.read::before { display:none; }
 .grid-card { transition:border-color 0.18s, transform 0.15s, box-shadow 0.15s; }
 .grid-card:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,0.1); }
@@ -1828,6 +1828,9 @@ function buildDetailHTML(num){
   h+=`<div class="card-actions"><button class="read-btn" onclick="event.stopPropagation();toggleRead(${num},this)">${isRead?'읽음 취소':'읽음 표시'}</button>`;
   if(ex.readTip) h+=`<span class="read-tip ${ex.readTier==='A'?'tier-a':ex.readTier==='B'?'tier-b':''}">${ex.readTier==='A'?'★ 필수':ex.readTier==='B'?'◎ 권장':'△ 심화'} — ${ex.readTip}</span>`;
   h+=`</div>`;
+  h+=`<div style="text-align:right;padding:10px 4px 2px;">
+    <button onclick="toggleExpand(${num})" style="background:none;border:1px solid var(--border);border-radius:6px;padding:5px 14px;font-size:12px;color:var(--text-muted);cursor:pointer;">닫기 ×</button>
+  </div>`;
   return h;
 }
 function toggleRead(num,btn){
