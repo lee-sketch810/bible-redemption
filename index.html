@@ -552,6 +552,232 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
   .modal-sheet { max-width: 680px; margin: 0 auto; border-radius: 18px 18px 0 0; }
   #bookModal { align-items: flex-end; justify-content: center; }
 }
+
+/* ════════ DARK MODE ════════ */
+[data-dark="1"] {
+  --bg:#0d1117; --surface:#161b22; --border:#30363d;
+  --gold:#d4a843; --gold-dim:rgba(212,168,67,0.13); --gold-border:rgba(212,168,67,0.35);
+  --text:#e6edf3; --text-dim:#c9d1d9; --text-muted:#8b949e;
+  --green:#3fb950; --blue:#58a6ff; --orange:#ffa657; --purple:#bc8cff;
+  --red:#ff7b72; --pink:#ff6eb4;
+}
+[data-dark="1"] body { background:var(--bg); color:var(--text); }
+/* Tab bar */
+[data-dark="1"] #tab-bar { background:#161b22; border-top-color:#30363d; }
+/* Page header */
+[data-dark="1"] .page-header { background:rgba(13,17,23,0.97); }
+/* Modal */
+[data-dark="1"] .modal-sheet { background:#161b22; }
+[data-dark="1"] .modal-close { background:rgba(22,27,34,0.92); border-color:#30363d; color:#8b949e; }
+/* Backdrop */
+[data-dark="1"] .modal-backdrop { background:rgba(0,0,0,0.75); }
+/* Book / grid cards */
+[data-dark="1"] .book-card,
+[data-dark="1"] .grid-card,
+[data-dark="1"] .cov-item,
+[data-dark="1"] .type-card,
+[data-dark="1"] .devo-card,
+[data-dark="1"] .verse-card,
+[data-dark="1"] .quick-btn { background:var(--surface); }
+[data-dark="1"] .book-card.read { opacity:0.4; }
+[data-dark="1"] .cov-item-header:hover { background:rgba(255,255,255,0.04); }
+/* Tutorial card */
+[data-dark="1"] #tutorialCard { background:#161b22; border-color:var(--gold-border); }
+[data-dark="1"] .tut-item { background:var(--gold-dim); border-color:var(--gold-border); }
+/* Glossary search */
+[data-dark="1"] .gloss-search { background:var(--bg); color:var(--text); border-color:var(--border); }
+/* Ms nav card */
+[data-dark="1"] .ms-nav-card,
+[data-dark="1"] .modal-nav-card { background:var(--bg); }
+/* Next book chip */
+[data-dark="1"] .next-book-chip { background:var(--surface); }
+/* Filter chip */
+[data-dark="1"] .filter-chip { background:var(--surface); color:var(--text-muted); }
+[data-dark="1"] .filter-chip.active { background:var(--gold-dim); color:var(--gold); }
+/* Key verse / covenant banner */
+[data-dark="1"] .key-verse { background:var(--gold-dim); border-color:var(--gold-border); color:var(--text-dim); }
+[data-dark="1"] .covenant-banner { background:rgba(63,185,80,0.08); border-color:rgba(63,185,80,0.25); color:#3fb950; }
+[data-dark="1"] .cov-verse-box { background:var(--gold-dim); border-color:var(--gold-border); color:var(--text-dim); }
+[data-dark="1"] .cov-nt-box { background:rgba(88,166,255,0.09); border-color:rgba(88,166,255,0.25); color:#79c0ff; }
+/* Tags — OT/NT/etc */
+[data-dark="1"] .tag-ot   { color:#ffa657; border-color:rgba(255,127,80,0.35); background:rgba(255,127,80,0.1); }
+[data-dark="1"] .tag-nt   { color:#79c0ff; border-color:rgba(88,166,255,0.35); background:rgba(88,166,255,0.1); }
+[data-dark="1"] .tag-type { color:#bc8cff; border-color:rgba(188,140,255,0.35); background:rgba(188,140,255,0.1); }
+[data-dark="1"] .tag-anti { color:#ff7b72; border-color:rgba(255,123,114,0.35); background:rgba(255,123,114,0.1); }
+[data-dark="1"] .tag-cov  { color:#3fb950; border-color:rgba(63,185,80,0.35); background:rgba(63,185,80,0.1); }
+[data-dark="1"] .tag-diff-초급 { color:#3fb950; border-color:rgba(63,185,80,0.35); background:rgba(63,185,80,0.1); }
+[data-dark="1"] .tag-diff-중급 { color:#ffa657; border-color:rgba(255,127,80,0.35); background:rgba(255,127,80,0.1); }
+[data-dark="1"] .tag-diff-고급 { color:#ff7b72; border-color:rgba(255,123,114,0.35); background:rgba(255,123,114,0.1); }
+/* Ref tags */
+[data-dark="1"] .ref-tag.ot { background:rgba(255,127,80,0.12); color:#ffa657; border-color:rgba(255,127,80,0.3); }
+[data-dark="1"] .ref-tag.nt { background:rgba(88,166,255,0.12); color:#79c0ff; border-color:rgba(88,166,255,0.3); }
+[data-dark="1"] .ref-tag.single { background:rgba(188,140,255,0.12); color:#bc8cff; border-color:rgba(188,140,255,0.3); }
+/* Ref pair bg */
+[data-dark="1"] .ref-pair { background:rgba(88,166,255,0.05); border-color:rgba(88,166,255,0.2); }
+/* Feel block (blue) */
+[data-dark="1"] .feel-block { background:rgba(88,166,255,0.07); border-color:rgba(88,166,255,0.2); color:#79c0ff; }
+[data-dark="1"] .feel-label { color:rgba(121,192,255,0.85); }
+/* Narr/ms christ (inline border-left blue) */
+[data-dark="1"] .narr-christ,
+[data-dark="1"] .ms-christ { color:#79c0ff; border-color:rgba(88,166,255,0.4); }
+[data-dark="1"] .ms-feel { color:#79c0ff; }
+/* Study reflection */
+[data-dark="1"] .study-reflection { background:rgba(88,166,255,0.05); border-color:rgba(88,166,255,0.18); }
+[data-dark="1"] .study-question,
+[data-dark="1"] .study-reflection-q { background:var(--gold-dim); border-color:var(--gold-border); }
+/* Type pair boxes */
+[data-dark="1"] .type-ot { background:rgba(255,127,80,0.08); border-color:rgba(255,127,80,0.25); }
+[data-dark="1"] .type-ot .type-label { color:#ffa657; }
+[data-dark="1"] .type-nt { background:rgba(88,166,255,0.08); border-color:rgba(88,166,255,0.25); }
+[data-dark="1"] .type-nt .type-label { color:#79c0ff; }
+[data-dark="1"] .type-verse-ot { color:#ffa657; }
+[data-dark="1"] .type-verse-nt { color:#79c0ff; }
+/* Silence card */
+[data-dark="1"] .silence-card { background:linear-gradient(135deg,#1e1a2e,#1a1028); border-color:rgba(188,140,255,0.25); }
+[data-dark="1"] .silence-years { color:rgba(188,140,255,0.9); }
+[data-dark="1"] .silence-label { color:#bc8cff; }
+[data-dark="1"] .silence-promise { color:#bc8cff; }
+[data-dark="1"] .silence-era { color:rgba(188,140,255,0.9); border-color:rgba(188,140,255,0.35); }
+/* Hdr btn */
+[data-dark="1"] .hdr-btn { background:var(--surface); color:var(--text-dim); border-color:var(--border); }
+[data-dark="1"] .hdr-btn.active { background:var(--gold-dim); color:var(--gold); border-color:var(--gold-border); }
+/* Read btn */
+[data-dark="1"] .read-btn { color:var(--text-muted); border-color:var(--border); }
+[data-dark="1"] .read-btn:hover { border-color:var(--green); color:var(--green); }
+[data-dark="1"] .book-card.read .read-btn { border-color:var(--green); color:var(--green); }
+/* Quick read dot on card */
+[data-dark="1"] .quick-read-btn { color:var(--text-muted); background:var(--surface); border-color:var(--border); }
+[data-dark="1"] .book-card.read .quick-read-btn { color:var(--green); border-color:var(--green); }
+/* home-hint */
+[data-dark="1"] .home-hint { background:var(--gold-dim); border-color:var(--gold-border); }
+[data-dark="1"] .home-hint:hover { background:rgba(212,168,67,0.2); }
+/* journey card */
+[data-dark="1"] .journey-card { background:var(--surface); }
+/* Era divider */
+[data-dark="1"] .era-line { background:var(--border); }
+/* Era intro */
+[data-dark="1"] .era-intro { color:var(--text-muted); border-color:var(--border); }
+/* home intro section */
+[data-dark="1"] .home-section { background:transparent; }
+/* inline-style overrides for JS-generated content */
+[data-dark="1"] .flow-item { background:rgba(255,255,255,0.03) !important; }
+[data-dark="1"] .ot-badge-inline { background:rgba(255,127,80,0.15) !important; color:#ffa657 !important; }
+[data-dark="1"] .nt-badge-inline { background:rgba(88,166,255,0.15) !important; color:#79c0ff !important; }
+[data-dark="1"] .nt-connect-label { color:#79c0ff !important; }
+/* Disclaimer box */
+[data-dark="1"] .disclaimer-box { background:rgba(255,255,255,0.03) !important; }
+/* Search bar */
+[data-dark="1"] #bookSearch { background:var(--bg); color:var(--text); border-color:var(--border); }
+[data-dark="1"] #timelineSearch { background:var(--bg); color:var(--text); border-color:var(--border); }
+/* Back to top */
+[data-dark="1"] #backToTop { background:#161b22; color:var(--text-muted); border-color:#30363d; }
+/* Era indicator */
+[data-dark="1"] #eraIndicator { background:rgba(13,17,23,0.94); border-color:#30363d; color:var(--text-muted); }
+
+/* ── Back to top button ── */
+#backToTop {
+  position:fixed; bottom:calc(var(--tab-h) + 14px + env(safe-area-inset-bottom,0));
+  right:14px; z-index:180;
+  width:38px; height:38px; border-radius:50%;
+  background:#fff; border:1px solid var(--border);
+  color:var(--text-muted); font-size:16px;
+  display:none; align-items:center; justify-content:center;
+  cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.12);
+  transition:all 0.2s;
+}
+#backToTop.visible { display:flex; }
+#backToTop:hover { border-color:var(--gold-border); color:var(--gold); }
+
+/* ── Era indicator ── */
+#eraIndicator {
+  position:fixed; top:calc(52px + env(safe-area-inset-top,0));
+  left:50%; transform:translateX(-50%);
+  background:rgba(245,247,250,0.94); border:1px solid var(--border);
+  border-radius:20px; padding:3px 12px;
+  font-size:10px; font-weight:700; color:var(--text-muted);
+  letter-spacing:.5px; z-index:49;
+  display:none; pointer-events:none;
+  backdrop-filter:blur(8px);
+  transition:opacity 0.2s;
+}
+#eraIndicator.visible { display:block; }
+
+/* ── Dark mode toggle button ── */
+#darkToggle {
+  position:fixed; bottom:calc(var(--tab-h) + 60px + env(safe-area-inset-bottom,0));
+  right:14px; z-index:180;
+  width:38px; height:38px; border-radius:50%;
+  background:#fff; border:1px solid var(--border);
+  font-size:16px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
+  transition:all 0.2s;
+}
+[data-dark="1"] #darkToggle { background:#161b22; border-color:#30363d; }
+#darkToggle:hover { border-color:var(--gold-border); }
+
+/* ── Timeline search bar ── */
+#timelineSearchWrap {
+  padding:6px 12px 0;
+  display:none;
+}
+#timelineSearchWrap.open { display:block; }
+#timelineSearch {
+  width:100%; padding:7px 12px 7px 30px;
+  border:1px solid var(--border); border-radius:8px;
+  font-size:12px; color:var(--text); background:var(--bg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:9px center;
+  outline:none;
+}
+#timelineSearch:focus { border-color:var(--gold-border); }
+
+/* ── Book search bar in 66권 page ── */
+#bookSearchWrap { padding:6px 12px 8px; background:var(--surface); border-bottom:1px solid var(--border); }
+#bookSearch {
+  width:100%; padding:7px 12px 7px 30px;
+  border:1px solid var(--border); border-radius:8px;
+  font-size:12px; color:var(--text); background:var(--bg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:9px center;
+  outline:none;
+}
+#bookSearch:focus { border-color:var(--gold-border); }
+
+/* ── Quick read button on card ── */
+.quick-read-btn {
+  position:absolute; top:9px; right:10px;
+  width:22px; height:22px; border-radius:50%;
+  border:1px solid var(--border); background:var(--surface);
+  font-size:10px; color:var(--text-muted);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all 0.18s; z-index:2;
+  line-height:1;
+}
+.quick-read-btn:hover { border-color:var(--green); color:var(--green); }
+.book-card.read .quick-read-btn { color:var(--green); border-color:var(--green); background:rgba(26,127,55,0.08); }
+.book-card.read .quick-read-btn::after { content:'✓'; }
+.book-card:not(.read) .quick-read-btn::after { content:'○'; }
+/* Prevent ::before "클릭 ›" from overlapping quick-read-btn */
+.book-card:not(.read):not(.expanded)::before { right:38px; }
+
+/* ── Era intro collapsible ── */
+.era-intro {
+  cursor:pointer;
+  padding-right:22px !important;
+  position:relative;
+}
+.era-intro::after {
+  content:'▾'; position:absolute; right:6px; top:8px;
+  font-size:10px; color:var(--text-muted);
+  transition:transform 0.2s;
+}
+.era-intro.collapsed {
+  max-height:2.8em; overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,black 50%,transparent);
+  mask-image:linear-gradient(to bottom,black 50%,transparent);
+}
+.era-intro.collapsed::after { transform:rotate(-90deg); }
 </style>
 </head>
 <body>
@@ -740,7 +966,7 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
       <div class="quick-btn" onclick="switchTab('books')">
         <div class="quick-btn-icon">📚</div>
         <div class="quick-btn-label">66권 카드</div>
-        <div class="quick-btn-sub">필터·검색</div>
+        <div class="quick-btn-sub">필터·태그·검색</div>
       </div>
       <div class="quick-btn" onclick="switchTab('covenant')">
         <div class="quick-btn-icon">🤝</div>
@@ -772,8 +998,12 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
     <div class="page-header-title">🚂 구속사 타임라인</div>
     <div class="page-header-right">
       <span class="read-count">읽음 <span id="tlReadCount">0</span>/66</span>
+      <button class="hdr-btn" id="tlSearchBtn" onclick="toggleTimelineSearch()" title="책 이름 검색">🔍</button>
       <button class="hdr-btn" onclick="switchTab('devotion')">📚 용어</button>
     </div>
+  </div>
+  <div id="timelineSearchWrap">
+    <input id="timelineSearch" type="search" placeholder="책 이름 검색 (예: 창세기, 로마서…)" oninput="filterTimeline(this.value)" />
   </div>
   <div class="rail-container" id="rail"></div>
 </div>
@@ -788,6 +1018,9 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
     <div class="filter-chip" data-filter="type" onclick="setFilter('type',this)">예표</div>
     <div class="filter-chip" data-filter="cov" onclick="setFilter('cov',this)">언약</div>
     <div class="filter-chip" data-filter="read" onclick="setFilter('read',this)">읽음</div>
+  </div>
+  <div id="bookSearchWrap">
+    <input id="bookSearch" type="search" placeholder="책 이름 검색 (예: 창세기, Romans…)" oninput="searchGrid(this.value)" />
   </div>
   <div class="grid-container" id="bookGrid"></div>
 </div>
@@ -823,6 +1056,13 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
     </div>
   </div>
 </div>
+
+<!-- ── Dark mode toggle ── -->
+<button id="darkToggle" onclick="toggleDark()" title="다크모드 전환">🌙</button>
+<!-- ── Back to top ── -->
+<button id="backToTop" onclick="scrollToTop()" title="맨 위로">↑</button>
+<!-- ── Era indicator ── -->
+<div id="eraIndicator"></div>
 
 <!-- ════════ BOTTOM TAB BAR ════════ -->
 <div id="tab-bar">
@@ -1626,6 +1866,36 @@ function getNextRecommendations(book){
   }
   return recs.slice(0,3);
 }
+// 책 약어 → 한국어 풀네임 매핑
+const BOOK_ABBR={
+  '창':'창세기','출':'출애굽기','레':'레위기','민':'민수기','신':'신명기',
+  '수':'여호수아','삿':'사사기','룻':'룻기','삼상':'사무엘상','삼하':'사무엘하',
+  '왕상':'열왕기상','왕하':'열왕기하','대상':'역대상','대하':'역대하',
+  '스':'에스라','느':'느헤미야','에':'에스더','욥':'욥기','시':'시편',
+  '잠':'잠언','전':'전도서','아':'아가','사':'이사야','렘':'예레미야',
+  '애':'예레미야 애가','겔':'에스겔','단':'다니엘','호':'호세아','욜':'요엘',
+  '암':'아모스','옵':'오바댜','욘':'요나','미':'미가','나':'나훔',
+  '합':'하박국','습':'스바냐','학':'학개','슥':'스가랴','말':'말라기',
+  '마':'마태복음','막':'마가복음','눅':'누가복음','요':'요한복음',
+  '행':'사도행전','롬':'로마서','고전':'고린도전서','고후':'고린도후서',
+  '갈':'갈라디아서','엡':'에베소서','빌':'빌립보서','골':'골로새서',
+  '살전':'데살로니가전서','살후':'데살로니가후서','딤전':'디모데전서',
+  '딤후':'디모데후서','딛':'디도서','몬':'빌레몬서','히':'히브리서',
+  '약':'야고보서','벧전':'베드로전서','벧후':'베드로후서','요일':'요한일서',
+  '요이':'요한이서','요삼':'요한삼서','유':'유다서','계':'요한계시록'
+};
+function refToFullName(ref){
+  // '창1:1' → '창세기 1:1'
+  const m=ref.match(/^([가-힣]+)(.*)/);
+  if(m && BOOK_ABBR[m[1]]) return BOOK_ABBR[m[1]]+(m[2]?' '+m[2].trim():'');
+  return ref;
+}
+
+// stage label → ERAS id 매핑 (단계 맵 클릭용)
+const STAGE_ERA_MAP={
+  '창조':'creation','타락':'creation','언약':'patriarch','율법':'exodus',
+  '왕국':'kingdom','포로':'exile','귀환':'return','성취':'gospels','완성':'apocalypse'
+};
 function renderStageMap(){
   const map=document.getElementById('stageMap');
   const stages=[
@@ -1640,18 +1910,32 @@ function renderStageMap(){
     {label:'완성',color:'#bc8cff',icon:'🌟'},
   ];
   map.innerHTML = stages.map((s,i)=>`
-    <div class="stage-node">
+    <div class="stage-node" style="cursor:pointer;" onclick="jumpToEra('${STAGE_ERA_MAP[s.label]||''}')" title="${s.label} 시대로 이동">
       <div class="stage-dot" style="background:${s.color}">${s.icon}</div>
       <div class="stage-label">${s.label}</div>
     </div>
     ${i<stages.length-1?'<div class="stage-arrow">›</div>':''}
   `).join('');
 }
+function jumpToEra(eraId){
+  if(!eraId) return;
+  switchTab('timeline');
+  setTimeout(()=>{
+    const firstBook=BOOKS.find(b=>{
+      const era=ERAS.find(e=>b.num>=e.range[0]&&b.num<=e.range[1]);
+      return era&&era.id===eraId;
+    });
+    if(firstBook){
+      const el=document.getElementById('book-'+firstBook.num);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  },320);
+}
 function renderVerseOfDay(){
   const keys=Object.keys(VT);
   const ref=keys[Math.floor(Math.random()*keys.length)];
   document.getElementById('verseText').textContent='"'+VT[ref]+'"';
-  document.getElementById('verseRef').textContent='— '+ref;
+  document.getElementById('verseRef').textContent='— '+refToFullName(ref);
 }
 
 // ── Timeline Rail
@@ -1749,9 +2033,10 @@ function renderRail(){
       div.innerHTML=`<div class="era-line"></div><div class="era-badge" style="background:${era.color}18;border:1px solid ${era.color}35;color:${era.color}">${era.label}</div><div class="era-period">${era.period}</div><div class="era-line"></div>`;
       rail.appendChild(div);
       if(era.intro){
-        const introDiv=document.createElement('div'); introDiv.className='era-intro';
+        const introDiv=document.createElement('div'); introDiv.className='era-intro collapsed';
         introDiv.textContent=era.intro;
-        introDiv.addEventListener('click',()=>{introDiv.classList.toggle('expanded');});
+        introDiv.title='클릭하여 펼치기/접기';
+        introDiv.addEventListener('click',()=>{introDiv.classList.toggle('collapsed');});
         rail.appendChild(introDiv);
       }
     }
@@ -1770,6 +2055,7 @@ function renderRail(){
     card.className=`book-card${isRead?' read':''}${isTierA?' tier-a':''}`;
     card.id='book-'+book.num;
     card.innerHTML=`
+      <button class="quick-read-btn" onclick="event.stopPropagation();quickToggleRead(${book.num},this)" title="읽음 표시/취소"></button>
       <div class="card-top" onclick="toggleExpand(${book.num})">
         <div class="book-num">${book.num}</div>
         <div class="book-main">
@@ -1817,7 +2103,7 @@ function buildDetailHTML(num){
     if(st.흐름&&st.흐름.length){
       h+=`<div style="margin-bottom:14px;"><div class="detail-label" style="margin-bottom:8px;">주요 흐름</div><div style="display:flex;flex-direction:column;gap:8px;">`;
       st.흐름.forEach(function(f){
-        h+=`<div style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
+        h+=`<div class="flow-item" style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
             <span style="font-weight:700;font-size:13px;color:var(--text);">${f.사건||f.단락||''}</span>
             ${f.구절?`<span style="font-size:11px;color:var(--gold);border:1px solid var(--gold-border);padding:1px 7px;border-radius:10px;">${f.구절}</span>`:''}
@@ -1987,7 +2273,7 @@ function openModal(num){
       content+=`<div class="study-section">
         <div class="study-section-title">주요 흐름</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-        ${st.흐름.map(f=>`<div style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
+        ${st.흐름.map(f=>`<div class="flow-item" style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
             <span style="font-weight:700;font-size:13px;color:var(--text);">${f.사건||f.단락||''}</span>
             ${f.구절?`<span style="font-size:11px;color:var(--gold);border:1px solid var(--gold-border);padding:1px 7px;border-radius:10px;">${f.구절}</span>`:''}
@@ -2009,15 +2295,15 @@ function openModal(num){
         const nt=typeof c==='object'?(c.nt||''):'';
         const otVerse=ot?getRefText(ot.replace(/[^가-힣a-zA-Z0-9:·\-\s]/g,'').trim()):'';
         const ntVerse=nt?getRefText(nt.replace(/[^가-힣a-zA-Z0-9:·\-\s]/g,'').trim()):'';
-        return '<div style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">'
+        return '<div class="flow-item" style="background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">'
           +'<div style="display:flex;gap:4px;align-items:center;margin-bottom:6px;flex-wrap:wrap;">'
-          +'<span style="font-size:11px;background:rgba(138,99,49,0.15);color:var(--gold);padding:2px 8px;border-radius:10px;font-weight:700;">구약</span>'
+          +'<span class="ot-badge-inline" style="font-size:11px;background:rgba(138,99,49,0.15);color:var(--gold);padding:2px 8px;border-radius:10px;font-weight:700;">구약</span>'
           +'<span style="font-size:13px;font-weight:700;color:var(--text);">'+ot+'</span>'
           +'</div>'
           +(otVerse?'<div style="font-size:11.5px;color:var(--text-muted);line-height:1.6;margin-bottom:6px;">'+otVerse+'</div>':'')
-          +'<div style="font-size:10px;color:var(--gold);font-weight:600;margin-bottom:4px;">↓ 신약 성취</div>'
+          +'<div class="nt-connect-label" style="font-size:10px;color:var(--gold);font-weight:600;margin-bottom:4px;">↓ 신약 성취</div>'
           +'<div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap;">'
-          +'<span style="font-size:11px;background:rgba(30,90,200,0.1);color:#3a6ee8;padding:2px 8px;border-radius:10px;font-weight:700;">신약</span>'
+          +'<span class="nt-badge-inline" style="font-size:11px;background:rgba(30,90,200,0.1);color:#3a6ee8;padding:2px 8px;border-radius:10px;font-weight:700;">신약</span>'
           +'<span style="font-size:13px;font-weight:700;color:var(--text);">'+nt+'</span>'
           +'</div>'
           +(ntVerse?'<div style="font-size:11.5px;color:var(--text-muted);line-height:1.6;margin-top:4px;">'+ntVerse+'</div>':'')
@@ -2264,11 +2550,115 @@ let tutDone=!!localStorage.getItem('tutorial_done_v3');
 function closeTutorial(){ document.getElementById('tutorialOverlay').style.display='none'; localStorage.setItem('tutorial_done_v3','1'); }
 if(!tutDone){ setTimeout(()=>{ document.getElementById('tutorialOverlay').style.display='flex'; },700); }
 
-// ── Progress bar
+// ── Progress bar + back-to-top + era indicator
 window.addEventListener('scroll',()=>{
   const docH=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById('progress-bar').style.width=docH>0?(window.scrollY/docH*100)+'%':'0%';
+  // back-to-top visibility
+  const btn=document.getElementById('backToTop');
+  if(btn) btn.classList.toggle('visible', window.scrollY>400);
+  // era indicator (only on timeline page)
+  updateEraIndicator();
 });
+
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Era indicator
+function updateEraIndicator(){
+  const ind=document.getElementById('eraIndicator');
+  if(!ind) return;
+  const timelinePage=document.getElementById('page-timeline');
+  if(!timelinePage||!timelinePage.classList.contains('active')){ind.classList.remove('visible');return;}
+  // find which era divider is currently visible near top
+  const dividers=document.querySelectorAll('.era-divider');
+  let currentEra='';
+  dividers.forEach(d=>{
+    const rect=d.getBoundingClientRect();
+    if(rect.top<120) currentEra=d.querySelector('.era-badge')?d.querySelector('.era-badge').textContent:'';
+  });
+  if(currentEra){ind.textContent=currentEra;ind.classList.add('visible');}
+  else{ind.classList.remove('visible');}
+}
+
+// ── Dark mode
+function toggleDark(){
+  const isDark=document.body.getAttribute('data-dark')==='1';
+  document.body.setAttribute('data-dark',isDark?'0':'1');
+  document.getElementById('darkToggle').textContent=isDark?'🌙':'☀️';
+  localStorage.setItem('dark_mode_v1',isDark?'0':'1');
+}
+(function initDark(){
+  const saved=localStorage.getItem('dark_mode_v1');
+  if(saved==='1'){
+    document.body.setAttribute('data-dark','1');
+    const btn=document.getElementById('darkToggle');
+    if(btn) btn.textContent='☀️';
+  }
+})();
+
+// ── Quick read toggle (card header button)
+function quickToggleRead(num,btn){
+  const card=document.getElementById('book-'+num);
+  if(readBooks.has(num)){
+    readBooks.delete(num);
+    card.classList.remove('read');
+  } else {
+    readBooks.add(num);
+    card.classList.add('read');
+  }
+  saveRead(); updateHomeStats();
+  // sync inner read-btn text if panel is loaded
+  const innerBtn=card.querySelector('.read-btn');
+  if(innerBtn) innerBtn.textContent=readBooks.has(num)?'읽음 취소':'읽음 표시';
+}
+
+// ── Timeline search
+function toggleTimelineSearch(){
+  const wrap=document.getElementById('timelineSearchWrap');
+  const btn=document.getElementById('tlSearchBtn');
+  const isOpen=wrap.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  if(isOpen) document.getElementById('timelineSearch').focus();
+  else { document.getElementById('timelineSearch').value=''; filterTimeline(''); }
+}
+function filterTimeline(q){
+  const kw=q.trim().toLowerCase();
+  document.querySelectorAll('.book-card').forEach(card=>{
+    if(!kw){card.style.display='';return;}
+    const name=card.querySelector('.book-name')?card.querySelector('.book-name').textContent.toLowerCase():'';
+    const nameEn=card.querySelector('.book-name-en')?card.querySelector('.book-name-en').textContent.toLowerCase():'';
+    card.style.display=(name.includes(kw)||nameEn.includes(kw))?'':'none';
+  });
+  // hide era-dividers and intros if all cards in them hidden
+  document.querySelectorAll('.era-divider').forEach(div=>{
+    let next=div.nextElementSibling;
+    // skip era-intro
+    if(next&&next.classList.contains('era-intro')) next=next.nextElementSibling;
+    // check if any book-card after this until next era-divider is visible
+    let hasVisible=false;
+    let el=next;
+    while(el&&!el.classList.contains('era-divider')){
+      if(el.classList.contains('book-card')&&el.style.display!=='none') hasVisible=true;
+      el=el.nextElementSibling;
+    }
+    div.style.display=(!kw||hasVisible)?'':'none';
+  });
+}
+
+// ── 66권 grid search
+function searchGrid(q){
+  const kw=q.trim().toLowerCase();
+  document.querySelectorAll('.grid-card').forEach(card=>{
+    if(!kw){card.classList.remove('hidden');return;}
+    const name=card.querySelector('.gc-name')?card.querySelector('.gc-name').textContent.toLowerCase():'';
+    const en=card.querySelector('.gc-en')?card.querySelector('.gc-en').textContent.toLowerCase():'';
+    const sum=card.querySelector('.gc-summary')?card.querySelector('.gc-summary').textContent.toLowerCase():'';
+    const match=name.includes(kw)||en.includes(kw)||sum.includes(kw);
+    card.classList.toggle('hidden',!match);
+  });
+}
 
 // ── Init
 updateHomeStats();
