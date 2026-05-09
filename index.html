@@ -2054,7 +2054,12 @@ function renderRail(){
     const card=document.createElement('div');
     card.className=`book-card${isRead?' read':''}${isTierA?' tier-a':''}`;
     card.id='book-'+book.num;
+    // build searchable text: name + English + summary + era + tags + keywords
+    const _eraLabel=(ERAS.find(e=>book.num>=e.range[0]&&book.num<=e.range[1])||{}).label||'';
+    const _tagText=[(isOT?'구약':'신약'),...(book.tags||[]),ex.difficulty||''].join(' ');
+    const _searchText=[book.n,book.en,book.summary||'',_eraLabel,_tagText,(book.keywords||[]).join(' ')].join(' ').toLowerCase();
     card.innerHTML=`
+      <span class="bsdata" style="display:none" aria-hidden="true">${_searchText}</span>
       <button class="quick-read-btn" onclick="event.stopPropagation();quickToggleRead(${book.num},this)" title="읽음 표시/취소"></button>
       <div class="card-top" onclick="toggleExpand(${book.num})">
         <div class="book-num">${book.num}</div>
@@ -2179,9 +2184,14 @@ function renderGrid(){
     div.dataset.type=hasType?'1':'0';
     div.dataset.cov=hasCov?'1':'0';
     div.dataset.read=isRead?'1':'0';
+    // build searchable text
+    const _gEraLabel=(ERAS.find(e=>book.num>=e.range[0]&&book.num<=e.range[1])||{}).label||'';
+    const _gTagText=[(isOT?'구약':'신약'),...(book.tags||[])].join(' ');
+    const _gSearchText=[book.n,book.en,book.summary||'',_gEraLabel,_gTagText,(book.keywords||[]).join(' ')].join(' ').toLowerCase();
     const testTag=isOT?'<span class="tag tag-ot">구약</span>':'<span class="tag tag-nt">신약</span>';
     const keyTag=hasKey?'<span class="tag tag-key">★핵심</span>':'';
     div.innerHTML=`
+      <span class="bsdata" style="display:none" aria-hidden="true">${_gSearchText}</span>
       <div class="gc-num">${book.num}권${isRead?'<span class="gc-read-dot"></span>':''}</div>
       <div class="gc-name">${book.n}</div>
       <div class="gc-en">${book.en}</div>
@@ -2627,9 +2637,8 @@ function filterTimeline(q){
   const kw=q.trim().toLowerCase();
   document.querySelectorAll('.book-card').forEach(card=>{
     if(!kw){card.style.display='';return;}
-    const name=card.querySelector('.book-name')?card.querySelector('.book-name').textContent.toLowerCase():'';
-    const nameEn=card.querySelector('.book-name-en')?card.querySelector('.book-name-en').textContent.toLowerCase():'';
-    card.style.display=(name.includes(kw)||nameEn.includes(kw))?'':'none';
+    const sd=card.querySelector('.bsdata');
+    card.style.display=(sd?sd.textContent:'').includes(kw)?'':'none';
   });
   // hide era-dividers and era-intros if all cards in them hidden
   document.querySelectorAll('.era-divider').forEach(div=>{
@@ -2654,11 +2663,8 @@ function searchGrid(q){
   const kw=q.trim().toLowerCase();
   document.querySelectorAll('.grid-card').forEach(card=>{
     if(!kw){card.classList.remove('hidden');return;}
-    const name=card.querySelector('.gc-name')?card.querySelector('.gc-name').textContent.toLowerCase():'';
-    const en=card.querySelector('.gc-en')?card.querySelector('.gc-en').textContent.toLowerCase():'';
-    const sum=card.querySelector('.gc-summary')?card.querySelector('.gc-summary').textContent.toLowerCase():'';
-    const match=name.includes(kw)||en.includes(kw)||sum.includes(kw);
-    card.classList.toggle('hidden',!match);
+    const sd=card.querySelector('.bsdata');
+    card.classList.toggle('hidden',!(sd?sd.textContent:'').includes(kw));
   });
 }
 
