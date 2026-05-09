@@ -1552,9 +1552,9 @@ function switchTab(tab){
 // ── Home
 function updateHomeStats(){
   const n=readBooks.size;
-  document.getElementById('homeReadNum').textContent=n;
-  document.getElementById('homeReadPct').textContent=Math.round(n/66*100)+'%';
-  document.getElementById('tlReadCount').textContent=n;
+  const elReadNum=document.getElementById('homeReadNum'); if(elReadNum) elReadNum.textContent=n;
+  const elReadPct=document.getElementById('homeReadPct'); if(elReadPct) elReadPct.textContent=Math.round(n/66*100)+'%';
+  const elTlCount=document.getElementById('tlReadCount'); if(elTlCount) elTlCount.textContent=n;
   // 여정 카드 업데이트
   const jNum=document.getElementById('journeyNum');
   const jFill=document.getElementById('journeyFill');
