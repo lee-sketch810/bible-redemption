@@ -544,7 +544,7 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
 
 /* Desktop — center content */
 @media (min-width: 769px) {
-  #page-home, #page-timeline, #page-grid, #page-covenant, #page-type, #page-devote {
+  #page-home, #page-timeline, #page-grid, #page-covenant, #page-type, #page-devote, #page-theme {
     max-width: 680px; margin: 0 auto;
   }
   #tab-bar { max-width: 680px; left: 50%; transform: translateX(-50%); }
@@ -1029,6 +1029,18 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
   </div>
 </div>
 
+<!-- ════════ 테마 추적기 PAGE ════════ -->
+<div id="page-theme" class="page">
+  <div class="page-header">
+    <div class="page-header-title">🔍 테마 추적기 — 성경 전체를 꿰는 실</div>
+  </div>
+  <div style="padding:12px;">
+    <div id="themeChips" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;"></div>
+    <div id="themeDesc" style="border-radius:12px;padding:14px;margin-bottom:16px;background:var(--surface);border:1px solid var(--border);"></div>
+    <div id="themeBooks"></div>
+  </div>
+</div>
+
 <!-- ── Dark mode toggle ── -->
 <button id="darkToggle" onclick="toggleDark()" title="다크모드 전환">🌙</button>
 <!-- ── Back to top ── -->
@@ -1044,6 +1056,7 @@ body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:v
   <button class="tab-btn" id="tab-covenant" onclick="switchTab('covenant')"><span class="tab-icon">🤝</span>언약</button>
   <button class="tab-btn" id="tab-typology" onclick="switchTab('typology')"><span class="tab-icon">✝</span>예표</button>
   <button class="tab-btn" id="tab-devotion" onclick="switchTab('devotion')"><span class="tab-icon">📖</span>용어사전</button>
+  <button class="tab-btn" id="tab-theme" onclick="switchTab('theme')"><span class="tab-icon">🔍</span>테마</button>
 </div>
 
 <!-- ════════ BOOK DETAIL MODAL ════════ -->
@@ -1755,6 +1768,9 @@ const GLOSSARY = [
   {term:'쉐키나 영광(Shekinah)',def:'히브리어로 "거하심" 또는 "임재"를 뜻하는 신학 용어로, 성경 본문에는 없지만 유대 랍비 전통에서 사용됩니다. 하나님이 시나이산에서 불 기둥과 구름 기둥으로(출 13:21), 성막에서 구름으로(출 40:34-35) 임재하신 것을 가리킵니다. 요한복음 1:14의 "말씀이 육신이 되어 우리 가운데 거하시매(에스케노센 — 장막을 치다)"는 예수님의 성육신을 쉐키나 영광의 최종 성취로 표현한 것입니다.'},
   {term:'속죄(贖罪)·화목제물',def:'속죄(atonement)는 죄로 끊어진 하나님과의 관계를 회복하는 것을 뜻합니다. 구약에서는 제물의 피를 통해 이루어졌으며, 특히 대속죄일의 의식이 핵심이었습니다(레 16장). 신약에서 예수님은 완전한 화목제물로 오셔서 한 번에 완전한 속죄를 이루셨습니다 — "그는 우리 죄를 위한 화목 제물이니 우리만 위할 뿐 아니요 온 세상의 죄를 위하심이라"(요일 2:2). "화목(hilasmos)"은 하나님의 진노를 달래고 관계를 회복시키는 것을 의미합니다.'},
   {term:'첫 열매(first fruits)',def:'구약 절기에서 추수의 첫 번째 소산을 하나님께 드리는 것으로, 앞으로 올 전체 수확의 보증을 의미했습니다. 바울은 예수님의 부활을 "잠자는 자들의 첫 열매"라고 부릅니다(고전 15:20). 예수님의 부활이 신자 전체의 부활의 보증이자 시작이라는 뜻입니다. 하나님 자신도 "그가 피조물 중에 우리로 한 첫 열매가 되게 하시려고"(약 1:18)라고 말씀하심으로써 새 창조의 첫 열매로서 신자를 부르십니다.'},
+  {term:'성화(聖化)',def:'칭의(의롭다 여김 받음) 이후 성령의 역사로 그리스도의 형상을 닮아가는 점진적 과정입니다. 단번에 완성되는 칭의와 달리, 성화는 평생에 걸쳐 이루어집니다. "우리가 다 수건을 벗은 얼굴로 거울을 보는 것 같이 주의 영광을 보매 그와 같은 형상으로 변화하여 영광에서 영광에 이르니"(고후 3:18). 구속사적으로 성화는 에덴에서 잃어버린 하나님의 형상이 그리스도 안에서 회복되는 과정이며, 재림 때 영화(榮化)로 완성됩니다(롬 8:29-30).'},
+  {term:'재림(再臨)',def:'예수 그리스도의 다시 오심을 가리키며 그리스어로 파루시아(Parousia — "현존, 도착")라고 합니다. 구속사의 마지막 장으로, 죽은 자의 부활, 최후 심판, 새 하늘과 새 땅의 새 창조가 함께 이루어집니다. 예수님은 승천하실 때 "너희 가운데서 하늘로 올려지신 이 예수는 하늘로 가심을 본 그대로 오시리라"(행 1:11)고 약속하셨습니다. 창세기 3:15의 원시복음에서 시작된 구속사 전체가 재림으로 완성되며, 요한계시록 22:20은 "아멘, 주 예수여 오시옵소서"로 이 소망을 선언합니다.'},
+  {term:'선택/선민(Election)',def:'하나님이 주권적으로 아브라함과 그 후손 이스라엘을 택하신 것을 가리킵니다. 목적은 특권이 아니라 "네 안에서 천하 만민이 복을 얻을 것이라"(창 12:3)는 선교적 부르심입니다. 이스라엘의 선택은 배타적 울타리가 아니라 열방을 향한 통로였습니다. 신약에서 교회는 이 사명을 이어받아 "택하신 족속이요 왕 같은 제사장들이요 거룩한 나라"(벧전 2:9)로 불립니다. 선택의 신학적 근거는 인간의 공로가 아니라 하나님의 은혜로운 뜻입니다(엡 1:4-5).'},
 ];
 
 const BEGINNER_PATH = [
@@ -1771,6 +1787,106 @@ const BEGINNER_PATH = [
 ];
 
 // ══════════════════════════════════════
+// THEME TRACKER DATA
+// ══════════════════════════════════════
+const THEMES = [
+  {id:'blood',label:'피/속죄',icon:'🩸',color:'#c0392b',
+   desc:'죄의 대가는 피, 그 피가 그리스도의 십자가로 완성되다 — 아벨의 제물에서 유월절 어린양을 거쳐 갈보리까지.',
+   books:[1,2,3,4,5,6,10,11,19,22,26,27,28,29,40,41,42,43,44,45,46,58]},
+  {id:'covenant',label:'언약',icon:'📜',color:'#8e44ad',
+   desc:'아담→노아→아브라함→모세→다윗→새 언약으로 이어지는 하나님의 약속 — 모두 그리스도 안에서 예가 된다(고후 1:20).',
+   books:[1,2,5,6,9,10,11,12,19,23,24,25,26,27,28,40,41,42,43,44,45,46,58,65,66]},
+  {id:'temple',label:'성막/성전',icon:'🏛️',color:'#d4a017',
+   desc:'하나님의 임재 처소 — 광야 성막→솔로몬 성전→그리스도의 몸→성령의 전으로 완성된다.',
+   books:[2,3,4,11,13,14,15,16,19,26,43,45,46,58,66]},
+  {id:'kingdom',label:'왕국/왕권',icon:'👑',color:'#2980b9',
+   desc:'다윗 언약에서 시작해 그리스도의 영원한 통치로 완성 — "그의 나라가 무궁하리라"(눅 1:33).',
+   books:[9,10,11,12,13,14,15,16,19,23,24,25,26,27,28,29,40,41,42,43,66]},
+  {id:'remnant',label:'남은 자',icon:'🌱',color:'#27ae60',
+   desc:'심판 속에서도 보존되는 신실한 공동체 — 은혜로 택하심을 따라 남은 자가 있느니라(롬 11:5).',
+   books:[1,6,12,13,14,15,16,23,24,25,26,27,28,29,30,44,45,66]},
+  {id:'exodus',label:'출애굽/해방',icon:'🚶',color:'#e67e22',
+   desc:'종의 집에서 나와 약속의 땅으로 — 구원의 원형 내러티브, 그리스도의 십자가로 완성.',
+   books:[2,3,4,5,6,40,41,42,43,44,45,58,66]},
+  {id:'wisdom',label:'지혜/율법',icon:'📖',color:'#16a085',
+   desc:'하나님 앞에서 어떻게 살 것인가 — 율법은 그리스도께로 인도하는 초등교사다(갈 3:24).',
+   books:[2,3,4,5,18,19,20,21,22,40,45,59,65]},
+  {id:'messiah',label:'메시아 예언',icon:'⭐',color:'#f39c12',
+   desc:'구약 전체에 흩어진 메시아의 윤곽이 예수 안에서 하나로 맞춰지다 — 탄생·사역·죽음·부활·재림.',
+   books:[1,5,9,19,23,24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,40,41,42,43,66]}
+];
+
+let activeThemeId = 'blood';
+
+function renderThemeTab(){
+  const chips = document.getElementById('themeChips');
+  if(!chips) return;
+  chips.innerHTML = THEMES.map(t=>`
+    <button onclick="selectTheme('${t.id}')"
+      style="padding:6px 12px;border-radius:20px;border:2px solid ${t.color};
+             background:${activeThemeId===t.id?t.color:'transparent'};
+             color:${activeThemeId===t.id?'#fff':t.color};
+             font-size:12px;cursor:pointer;font-weight:700;white-space:nowrap;
+             transition:all 0.2s;">
+      ${t.icon} ${t.label}
+    </button>`).join('');
+  renderThemeContent();
+}
+
+function selectTheme(id){
+  activeThemeId = id;
+  renderThemeTab();
+}
+
+function renderThemeContent(){
+  const theme = THEMES.find(t=>t.id===activeThemeId);
+  if(!theme) return;
+  const descEl = document.getElementById('themeDesc');
+  if(descEl){
+    descEl.innerHTML=`
+      <div style="font-size:28px;margin-bottom:6px;">${theme.icon}</div>
+      <div style="font-size:16px;font-weight:700;color:${theme.color};margin-bottom:8px;">${theme.label}</div>
+      <div style="font-size:13px;color:var(--text-dim);line-height:1.7;">${theme.desc}</div>
+      <div style="margin-top:10px;font-size:12px;color:var(--text-muted);font-weight:600;">총 ${theme.books.length}권에 걸쳐 흐르는 테마</div>`;
+  }
+  const container = document.getElementById('themeBooks');
+  if(!container) return;
+  const eraGroups={};
+  theme.books.forEach(num=>{
+    const book=BOOKS.find(b=>b.num===num);
+    if(!book) return;
+    const era=ERAS.find(e=>num>=e.range[0]&&num<=e.range[1]);
+    if(!era) return;
+    if(!eraGroups[era.id]) eraGroups[era.id]={era,books:[]};
+    eraGroups[era.id].books.push(book);
+  });
+  container.innerHTML=ERAS
+    .filter(e=>eraGroups[e.id])
+    .map(e=>{
+      const g=eraGroups[e.id];
+      const isRead=b=>readBooks.has(b.num);
+      return`<div style="margin-bottom:20px;">
+        <div style="font-size:12px;font-weight:700;color:${e.color};
+             border-left:3px solid ${e.color};padding-left:8px;margin-bottom:10px;">
+          ${e.label} <span style="color:var(--text-muted);font-weight:400;">(${g.books.length}권)</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${g.books.map(book=>`
+            <div onclick="openModal(${book.num})"
+              style="padding:8px 14px;background:var(--surface);
+                     border:1.5px solid ${isRead(book)?e.color:e.color+'44'};
+                     border-radius:10px;cursor:pointer;min-width:72px;text-align:center;
+                     opacity:${isRead(book)?1:0.8};position:relative;">
+              ${isRead(book)?`<div style="position:absolute;top:3px;right:5px;font-size:10px;color:${e.color};">✓</div>`:''}
+              <div style="font-size:13px;font-weight:700;">${book.n}</div>
+              <div style="font-size:10px;color:var(--text-muted);">${book.en}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+    }).join('');
+}
+
+// ══════════════════════════════════════
 // APP LOGIC
 // ══════════════════════════════════════
 
@@ -1778,7 +1894,7 @@ let readBooks = new Set(JSON.parse(localStorage.getItem('redemption_read_v3')||'
 function saveRead(){ localStorage.setItem('redemption_read_v3',JSON.stringify([...readBooks])); }
 
 // ── Tab Navigation
-const TABS = ['home','timeline','books','covenant','typology','devotion'];
+const TABS = ['home','timeline','books','covenant','typology','devotion','theme'];
 function switchTab(tab){
   TABS.forEach(t=>{
     document.getElementById('page-'+t).classList.toggle('active',t===tab);
@@ -1790,6 +1906,7 @@ function switchTab(tab){
   if(tab==='covenant' && !document.getElementById('covenantList').firstChild){ renderCovenants(); }
   if(tab==='typology' && !document.getElementById('typeList').firstChild){ renderTypology(); }
   if(tab==='devotion' && !document.getElementById('glossaryList').firstChild){ renderDevotion(); }
+  if(tab==='theme'){ renderThemeTab(); }
 }
 
 // ── Home
